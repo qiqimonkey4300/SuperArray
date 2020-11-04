@@ -38,4 +38,66 @@ public class SuperArray {
     }
     data = replace;
   }
+
+  public boolean isEmpty() {
+    return (size == 0);
+  }
+
+  public void clear() {
+    for (int i = 0; i < size; i++) {
+      data[i] = null;
+    }
+    size = 0;
+  }
+
+  public String toString() {
+    String x = "[";
+    for (int i = 0; i < size - 1; i++) {
+      x += data[i] + ", ";
+    }
+    if (size != 0) {
+      x += data[size - 1];
+    }
+    x += "]";
+    return x;
+  }
+
+  public boolean contains(String s) {
+    int x = 0;
+    for (int i = 0; i < data.length && x != 0; i++) {
+      if (data[i] == s) x++;
+    }
+    return (x != 0);
+  }
+
+  public SuperArray(int initialCapacity) {
+    data = new String[initialCapacity];
+    size = 0;
+  }
+
+  public void add(int index, String element) {
+    if (size == data.length) {
+      resize();
+    }
+    for (int i = size; i > index; i--) {
+      data[i] = data[i - 1];
+    }
+    data[index] = element;
+  }
+
+  public void remove(int index) {
+    for (int i = index; i < size - 1; i++) {
+      data[i] = data[i + 1];
+    }
+  }
+
+  public int indexOf(String s) {
+    int x = -1;
+    for (int i = 0; i < size && x == -1; i++) {
+      if (data[i].equals(s)) {
+        x = i;
+      }
+    }
+    return x;
+  }
 }
