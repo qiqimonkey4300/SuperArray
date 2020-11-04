@@ -100,4 +100,13 @@ public class SuperArray {
     }
     return x;
   }
+
+  public String[] toArray() {
+    String[] x = new String[size];
+    this.size = size;
+    for (int i = 0; i < size; i++) {
+      x[i] = data[i];
+    }
+    return x;
+  }
 }
