@@ -85,10 +85,12 @@ public class SuperArray {
     data[index] = element;
   }
 
-  public void remove(int index) {
+  public String remove(int index) {
+    String x = data[index];
     for (int i = index; i < size - 1; i++) {
       data[i] = data[i + 1];
     }
+    return x;
   }
 
   public int indexOf(String s) {
@@ -103,7 +105,6 @@ public class SuperArray {
 
   public String[] toArray() {
     String[] x = new String[size];
-    this.size = size;
     for (int i = 0; i < size; i++) {
       x[i] = data[i];
     }
