@@ -18,6 +18,24 @@ public class Demo {
     return overlaps;
   }
 
+  public static SuperArray zip(SuperArray a, SuperArray b) {
+    SuperArray all = new SuperArray();
+    for (int i = 0; i < a.size() && i < b.size(); i++) {
+      all.add(a.get(i));
+      all.add(b.get(i));
+    }
+    if (b.size() > a.size()) {
+      for (int i = a.size(); i < b.size(); i++) {
+        all.add(b.get(i));
+      }
+    } else {
+      for (int i = b.size(); i < a.size(); i++) {
+        all.add(a.get(i));
+      }
+    }
+    return all;
+  }
+
   public static void main(String[] args) {
     SuperArray words = new SuperArray();
     words.add("kani"); words.add("uni"); words.add("ebi"); words.add("una");
@@ -29,6 +47,12 @@ public class Demo {
     b.add("0"); b.add("4"); b.add("2"); b.add("2"); b.add("9");
     SuperArray c = new SuperArray();
     c.add("0"); c.add("4"); c.add("2"); c.add("2"); c.add("9");
+    SuperArray d = new SuperArray();
+    SuperArray e = new SuperArray();
+    SuperArray f = new SuperArray();
+    d.add("a"); d.add("b"); d.add("c"); d.add("d"); d.add("e"); d.add("f");
+    e.add("0"); e.add("1"); e.add("2"); e.add("3");
+    f.add("a"); f.add("b"); f.add("c"); f.add("d");
 
     System.out.println(words.lastIndexOf("una"));
     System.out.println(words);
@@ -37,6 +61,10 @@ public class Demo {
     System.out.println(findOverlap(a, b));
     System.out.println(a.equals(b));
     System.out.println(c.equals(b));
+    System.out.println(zip(d, e));
+    System.out.println(zip(e, d));
+    System.out.println(zip(e, f));
+
   }
 
 }

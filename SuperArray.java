@@ -116,4 +116,24 @@ public class SuperArray {
     System.out.println(data);
     return x;
   }
+
+  public int lastIndexOf(String value) {
+    int x = -1;
+    for (int i = size - 1; i >= 0 && x == -1; i--) {
+      if (data[i].equals(value)) {
+        x = i;
+      }
+    }
+    return x;
+  }
+
+  public boolean equals(SuperArray other) {
+    int x = 0;
+    for (int i = 0; i < other.size(); i++) {
+      if (other.get(i) == null && !data[i].equals(other.get(i))) {
+        x++;
+      }
+    }
+    return x == 0;
+  }
 }
