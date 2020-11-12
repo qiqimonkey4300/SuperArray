@@ -48,11 +48,11 @@ public class Demo {
     SuperArray c = new SuperArray();
     c.add("0"); c.add("4"); c.add("2"); c.add("2"); c.add("9");
     SuperArray d = new SuperArray();
-    SuperArray e = new SuperArray();
     SuperArray f = new SuperArray();
+    SuperArray g = new SuperArray();
     d.add("a"); d.add("b"); d.add("c"); d.add("d"); d.add("e"); d.add("f");
-    e.add("0"); e.add("1"); e.add("2"); e.add("3");
     f.add("a"); f.add("b"); f.add("c"); f.add("d");
+    g.add("0"); g.add("1"); g.add("2"); g.add("3");
 
     System.out.println(words.lastIndexOf("una"));
     System.out.println(words);
@@ -61,10 +61,27 @@ public class Demo {
     System.out.println(findOverlap(a, b));
     System.out.println(a.equals(b));
     System.out.println(c.equals(b));
-    System.out.println(zip(d, e));
-    System.out.println(zip(e, d));
-    System.out.println(zip(e, f));
-
+    System.out.println(zip(d, g));
+    System.out.println(zip(g, d));
+    System.out.println(zip(g, f));
+    try {
+      SuperArray close = new SuperArray(5);
+      System.out.println("YAY 5");
+    } catch (IllegalArgumentException e){
+      e.printStackTrace();
+    }
+    try {
+      SuperArray close = new SuperArray(0);
+      System.out.println("YAY 0");
+    } catch (IllegalArgumentException e){
+      e.printStackTrace();
+    }
+    try {
+      SuperArray close = new SuperArray(-5);
+      System.out.println("Hold on one sec...");
+    } catch (IllegalArgumentException e){
+      e.printStackTrace();
+    }
+    
   }
-
 }

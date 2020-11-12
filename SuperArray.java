@@ -32,7 +32,7 @@ public class SuperArray {
   }
 
   private void resize() {
-    String[] replace = new String[size + 10];
+    String[] replace = new String[size * 2 + 1];
     for (int i = 0; i < size; i++) {
       replace[i] = data[i];
     }
@@ -73,6 +73,9 @@ public class SuperArray {
   }
 
   public SuperArray(int initialCapacity) {
+    if (initialCapacity < 0) {
+      throw new IllegalArgumentException("The initial capacity cannot be negative!");
+    }
     data = new String[initialCapacity];
     size = 0;
   }
@@ -130,7 +133,7 @@ public class SuperArray {
   public boolean equals(SuperArray other) {
     int x = 0;
     for (int i = 0; i < other.size(); i++) {
-      if (other.get(i) == null && !data[i].equals(other.get(i))) {
+      if (data[i] == null || !data[i].equals(other.get(i))) {
         x++;
       }
     }
