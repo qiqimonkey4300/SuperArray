@@ -93,6 +93,12 @@ public class SuperArray {
   }
 
   public void add(int index, String element) {
+    if (index < 0) {
+      throw new IndexOutOfBoundsException("The index can't be negative!");
+    }
+    if (index > size()) {
+      throw new IndexOutOfBoundsException("The index can't be greater than the size. Size: "+size());
+    }
     if (size == data.length) {
       resize();
     }
@@ -104,11 +110,18 @@ public class SuperArray {
   }
 
   public String remove(int index) {
+    if (index < 0) {
+      throw new IndexOutOfBoundsException("The index can't be negative!");
+    }
+    if (index >= size()) {
+      throw new IndexOutOfBoundsException("The index must be less than the size. Size: "+size());
+    }
     String x = data[index];
     size -= 1;
     for (int i = index; i < size; i++) {
       data[i] = data[i + 1];
     }
+    data[size] = null;
     return x;
   }
 

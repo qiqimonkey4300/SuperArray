@@ -127,9 +127,44 @@ public class Demo {
     }
     System.out.println();
     System.out.println("-------add IndexOutOfBoundsException Testing-------");
-
+    try {
+      g.add(4, "yeah");
+      System.out.println("good add input works");
+    } catch (IndexOutOfBoundsException e) {
+      e.printStackTrace();
+    }
+    try {
+      g.add(6, "Bleh");
+      System.out.println("this index is a bit too big, it shouldnt work! :(");
+    } catch (IndexOutOfBoundsException e) {
+      e.printStackTrace();
+    }
+    try {
+      g.add(-2, "Blah");
+      System.out.println("index is a bit to the left");
+    } catch (IndexOutOfBoundsException e) {
+      e.printStackTrace();
+    }
     System.out.println();
     System.out.println("-------remove IndexOutOfBoundsException Testing-------");
-
+    try {
+      System.out.println(g.remove(4));
+      System.out.println("good set input works");
+    } catch (IndexOutOfBoundsException e) {
+      e.printStackTrace();
+    }
+    try {
+      System.out.println(g.remove(4));
+      System.out.println("this index is a bit too big, it shouldnt work! :(");
+    } catch (IndexOutOfBoundsException e) {
+      e.printStackTrace();
+    }
+    try {
+      System.out.println(g.remove(-2));
+      System.out.println("index is a bit to the left");
+    } catch (IndexOutOfBoundsException e) {
+      e.printStackTrace();
+    }
+    System.out.println(g.toString());
   }
 }
