@@ -64,6 +64,9 @@ public class Demo {
     System.out.println(zip(d, g));
     System.out.println(zip(g, d));
     System.out.println(zip(g, f));
+
+    System.out.println();
+    System.out.println("-------SuperArray IllegalArgumentException Testing-------");
     try {
       SuperArray close = new SuperArray(5);
       System.out.println("YAY 5");
@@ -82,6 +85,8 @@ public class Demo {
     } catch (IllegalArgumentException e){
       e.printStackTrace();
     }
+    System.out.println();
+    System.out.println("-------get IndexOutOfBoundsException Testing-------");
     try {
       System.out.println(g.get(2));
       System.out.println("good get input works");
@@ -100,5 +105,31 @@ public class Demo {
     } catch (IndexOutOfBoundsException e) {
       e.printStackTrace();
     }
+    System.out.println();
+    System.out.println("-------set IndexOutOfBoundsException Testing-------");
+    try {
+      System.out.println(g.set(2, "yeah"));
+      System.out.println("good set input works");
+    } catch (IndexOutOfBoundsException e) {
+      e.printStackTrace();
+    }
+    try {
+      System.out.println(g.set(4, "Bleh"));
+      System.out.println("this index is a bit too big, it shouldnt work! :(");
+    } catch (IndexOutOfBoundsException e) {
+      e.printStackTrace();
+    }
+    try {
+      System.out.println(g.set(-2, "Blah"));
+      System.out.println("index is a bit to the left");
+    } catch (IndexOutOfBoundsException e) {
+      e.printStackTrace();
+    }
+    System.out.println();
+    System.out.println("-------add IndexOutOfBoundsException Testing-------");
+
+    System.out.println();
+    System.out.println("-------remove IndexOutOfBoundsException Testing-------");
+
   }
 }

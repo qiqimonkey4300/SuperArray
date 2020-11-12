@@ -32,6 +32,12 @@ public class SuperArray {
   }
 
   public String set(int index, String element) {
+    if (index < 0) {
+      throw new IndexOutOfBoundsException("The index can't be negative!");
+    }
+    if (index >= size()) {
+      throw new IndexOutOfBoundsException("The index must be less than the size. Size: "+size());
+    }
     String old = get(index);
     data[index] = element;
     return old;
