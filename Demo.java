@@ -82,6 +82,23 @@ public class Demo {
     } catch (IllegalArgumentException e){
       e.printStackTrace();
     }
-    
+    try {
+      System.out.println(g.get(2));
+      System.out.println("good get input works");
+    } catch (IndexOutOfBoundsException e) {
+      e.printStackTrace();
+    }
+    try {
+      System.out.println(g.get(4));
+      System.out.println("this index is a bit too big, it shouldnt work! :(");
+    } catch (IndexOutOfBoundsException e) {
+      e.printStackTrace();
+    }
+    try {
+      System.out.println(g.get(-2));
+      System.out.println("index is a bit to the left");
+    } catch (IndexOutOfBoundsException e) {
+      e.printStackTrace();
+    }
   }
 }
